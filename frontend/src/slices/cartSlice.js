@@ -37,11 +37,7 @@ const initialState = localStorage.getItem('cart')
               ).toFixed(2);
 
               localStorage.setItem('cart', JSON.stringify(state));
-
-
-
         },
-
     },
   });
 
