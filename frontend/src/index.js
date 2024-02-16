@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store';
 //import 'bootstrap/dist/css/bootstrap.min.css'
@@ -21,13 +21,14 @@ import OrderScreen from './screens/OrderScreen';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import ProfileScreen from './screens/ProfileScreen';
 import AdminRoute from './components/AdminRoute';
-import OrderListScreen from './screens/OrderListScreen';
+import OrderListScreen from './screens/admin/OrderListScreen';
+import ProductListScreen from './screens/admin/ProductListScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<App/>}>
-      <Route index={true} path='/' element={<HomeScreen/>} />
-      <Route path='/product/:id' element={<ProductScreen/>} />
+    <Route path='/' element={<App />}>
+      <Route index={true} path='/' element={<HomeScreen />} />
+      <Route path='/product/:id' element={<ProductScreen />} />
       <Route path='/cart' element={<CartScreen />} />
       <Route path='/login' element={<LoginScreen />} />
       <Route path='/register' element={<RegisterScreen />} />
@@ -42,6 +43,7 @@ const router = createBrowserRouter(
       {/* Admin users */}
       <Route path='' element={<AdminRoute />}>
         <Route path='/admin/orderlist' element={<OrderListScreen />} />
+        <Route path='/admin/productlist' element={<ProductListScreen />} />
       </Route>
     </Route>
   )
